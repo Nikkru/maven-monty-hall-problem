@@ -1,11 +1,8 @@
 package org.example;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-import org.apache.commons.math3.util.ArithmeticUtils;
-import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 
 public class TestMontyHallProblem {
     private final static String PRIZE = "car";
@@ -29,11 +26,8 @@ public class TestMontyHallProblem {
             }
             testResult.put(i, doors[didChoice] == PRIZE);
         }
-//        for (int i = 0; i < testResult.size(); i++) {
-//            System.out.println(i + " " + testResult.get(i));
-//        }
+
         countFalls = testResult.size() - countTrue;
-        int gcd = ArithmeticUtils.gcd((int)countTrue / 100, (int)countFalls / 100);
         System.out.println("Из " + NUMBER_CHECKS + " попыток угадать одно из трех: удачные - " + countTrue);
         System.out.println("Из " + NUMBER_CHECKS + " попыток угадать одно из трех: неудачные - " + countFalls);
         System.out.println("Вероятность верного решения в процентах " + countTrue*100 / 1000 + " %");
@@ -52,14 +46,8 @@ public class TestMontyHallProblem {
             testResult.put(i, doors[didChoice] == PRIZE);
         }
         countFalls = testResult.size() - countTrue;
-        int gcd = ArithmeticUtils.gcd((int)countTrue / 100, (int)countFalls / 100);
         System.out.println("Из " + NUMBER_CHECKS + " попыток угадать одно из трех по методу Монти Холла: удачные - " + countTrue);
         System.out.println("Из " + NUMBER_CHECKS + " попыток угадать одно из трех по методу Монти Холла: неудачные - " + countFalls);
         System.out.println("Вероятность верного решения в процентах " + countTrue * 100 / 1000 + " %");
     }
-
-//    public static void main(String[] args) {
-//        testChoiceFromThreeDoors();
-//        testMontyChoice();
-//    }
 }
